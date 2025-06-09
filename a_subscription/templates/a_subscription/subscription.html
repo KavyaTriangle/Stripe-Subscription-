@@ -1,0 +1,60 @@
+{% extends 'layouts/blank.html' %}
+
+{% block content %}
+<div class="bg-white py-12">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <h2 class="text-center text-3xl font-extrabold text-gray-900 mb-12">Subscription Plans</h2>
+    
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <!-- Basic Plan -->
+      <div class="border rounded-xl p-6 text-center shadow">
+        <h3 class="text-lg font-semibold text-gray-700">BASIC</h3>
+        <p class="text-3xl font-bold my-2">$5 <span class="text-base font-medium text-gray-500">/month</span></p>
+       <form  method="POST">
+          {% csrf_token %}
+          <input type="hidden" name="price_id" value="{{subscription.basic}}">
+          <button type="submit" class="mt-4 w-full bg-black text-white py-2 rounded-lg hover:opacity-90">Subscribe</button>
+        </form>
+        <ul class="mt-6 text-sm text-left text-gray-600 space-y-2">
+          <li>✔ Access to exclusive content</li>
+          <li class="text-gray-400">✖ Pro features (Analytics, Private Chat, ...)</li>
+          <li class="text-gray-400">✖ Premium Support</li>
+        </ul>
+      </div>
+
+      <!-- Pro Plan -->
+      <div class="border-4 border-indigo-500 rounded-xl p-6 text-center shadow relative">
+        <span class="absolute -top-3 right-3 bg-indigo-500 text-white text-xs font-semibold px-2 py-1 rounded">MOST POPULAR</span>
+        <h3 class="text-lg font-semibold text-gray-700">PRO</h3>
+        <p class="text-3xl font-bold my-2">$10 <span class="text-base font-medium text-gray-500">/month</span></p>
+          <form  method="POST">
+          {% csrf_token %}
+          <input type="hidden" name="price_id" value={{subscription.pro}}>
+          <button type="submit" class="mt-4 w-full bg-indigo-500 text-white py-2 rounded-lg hover:opacity-90">Subscribe</button>
+        </form>
+        <ul class="mt-6 text-sm text-left text-gray-600 space-y-2">
+          <li>✔ Access to exclusive content</li>
+          <li>✔ Pro features (Analytics, Private Chat, ...)</li>
+          <li class="text-gray-400">✖ Premium Support</li>
+        </ul>
+      </div>
+
+      <!-- Premium Plan -->
+      <div class="border rounded-xl p-6 text-center shadow">
+        <h3 class="text-lg font-semibold text-gray-700">PREMIUM</h3>
+        <p class="text-3xl font-bold my-2">$25 <span class="text-base font-medium text-gray-500">/month</span></p>
+       <form  method="POST">
+          {% csrf_token %}
+          <input type="hidden" name="price_id" value={{subscription.premium}}>
+          <button type="submit" class="mt-4 w-full bg-black text-white py-2 rounded-lg hover:opacity-90">Subscribe</button>
+        </form>
+        <ul class="mt-6 text-sm text-left text-gray-600 space-y-2">
+          <li>✔ Access to exclusive content</li>
+          <li>✔ Pro features (Analytics, Private Chat, ...)</li>
+          <li>✔ Premium Support</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

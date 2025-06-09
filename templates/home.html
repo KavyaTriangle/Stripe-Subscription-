@@ -1,0 +1,15 @@
+{% extends 'layouts/blank.html' %}
+
+{% block content %} 
+
+    <div class="max-w-4xl mx-auto px-8 py-24">
+        <h1>Payment</h1>
+        <div class = "mt-2">
+            <a href="{% url 'product' %}" class = "button">Shop</a>
+        </div>
+        <div class = "mt-2">
+            <a href="{% url 'subscription' %}" class = "button">Subscription</a>
+        </div>
+    </div>
+
+{% endblock %}
